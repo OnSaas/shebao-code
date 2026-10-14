@@ -36,16 +36,18 @@ a { color: var(--blue); text-decoration: none; }
 .hidden { display: none !important; }
 
 .app {
+  height: 100dvh;
   min-height: 100%;
-  min-height: 100dvh;
   width: 100%;
   background: #f2f6fc;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .phone-screen {
-  flex: 1;
+  flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
   background: #f2f6fc;
