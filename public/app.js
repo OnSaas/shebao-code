@@ -155,7 +155,7 @@
       if (!btn) return;
       const view = btn.dataset.view;
       tabbar.querySelectorAll('button').forEach((b) => b.classList.toggle('active', b === btn));
-      ['home', 'service', 'guide', 'me'].forEach((v) => {
+      ['home', 'service', 'me'].forEach((v) => {
         const el = document.getElementById('view-' + v);
         if (el) el.classList.toggle('hidden', v !== view);
       });

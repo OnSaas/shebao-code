@@ -63,34 +63,41 @@
     <main class="screen-body hidden" id="view-service">
       <div class="section-title">本年缴费记录</div>
       <div class="entry-card" id="records"></div>
-      <div class="section-title">待遇与服务</div>
-      <div class="entry-card">
-        <div class="entry-row">
-          <div class="ico"><svg><use href="/icons.svg#ic-card"></use></svg></div>
-          <div class="txt">养老金测算<small>按当前缴费年限试算</small></div>
-          <span class="chev">›</span>
-        </div>
-        <div class="entry-row">
-          <div class="ico"><svg><use href="/icons.svg#ic-shield"></use></svg></div>
-          <div class="txt">医保个人账户<small>余额与消费明细</small></div>
-          <span class="chev">›</span>
-        </div>
-        <div class="entry-row">
-          <div class="ico"><svg><use href="/icons.svg#ic-guide"></use></svg></div>
-          <div class="txt">参保证明打印<small>在线开具、二维码验真</small></div>
-          <span class="chev">›</span>
-        </div>
-      </div>
-    </main>
 
-    <main class="screen-body hidden" id="view-guide">
-      <div class="section-title">常见问题</div>
+      <div class="section-title">在线服务入口</div>
       <div class="entry-card">
-        <div class="faq"><b>社保码怎么使用？</b><p>在政务大厅、公共交通、医院等场所出示二维码，由工作人员扫码核验通行状态。</p></div>
-        <div class="faq"><b>为什么我的码变黄/变红？</b><p>缴费逾期、信息不一致、参保状态异常等都可能触发。按提示到经办机构或线上处理，处理完成后状态会自动更新。</p></div>
-        <div class="faq"><b>身份证号被遮挡了怎么办？</b><p>默认对身份证号做脱敏展示，可在「我的」中按需调整。</p></div>
-        <div class="faq"><b>二维码可以截图给别人吗？</b><p>社保码一人一码，仅限本人使用。截图会导致双方都无法正常核验。</p></div>
+        <a class="entry-row tap" href="https://si.12333.gov.cn/" target="_blank" rel="noopener noreferrer">
+          <div class="ico"><svg><use href="/icons.svg#ic-search"></use></svg></div>
+          <div class="txt">个人权益记录查询<small>国家社会保险公共服务平台 · si.12333.gov.cn</small></div>
+          <span class="chev">↗</span>
+        </a>
+        <a class="entry-row tap" href="https://si.12333.gov.cn/" target="_blank" rel="noopener noreferrer">
+          <div class="ico"><svg><use href="/icons.svg#ic-guide"></use></svg></div>
+          <div class="txt">参保证明打印<small>国家社会保险公共服务平台 · 在线开具、验真</small></div>
+          <span class="chev">↗</span>
+        </a>
+        <a class="entry-row tap" href="https://si.12333.gov.cn/" target="_blank" rel="noopener noreferrer">
+          <div class="ico"><svg><use href="/icons.svg#ic-shield"></use></svg></div>
+          <div class="txt">养老金测算 · 待遇资格认证<small>国家社会保险公共服务平台</small></div>
+          <span class="chev">↗</span>
+        </a>
+        <a class="entry-row tap" href="https://fuwu.nhsa.gov.cn/" target="_blank" rel="noopener noreferrer">
+          <div class="ico"><svg><use href="/icons.svg#ic-card"></use></svg></div>
+          <div class="txt">医保个人账户 · 消费明细<small>国家医保服务平台 · fuwu.nhsa.gov.cn</small></div>
+          <span class="chev">↗</span>
+        </a>
+        <a class="entry-row tap" href="https://www.12333.gov.cn/" target="_blank" rel="noopener noreferrer">
+          <div class="ico"><svg><use href="/icons.svg#ic-person"></use></svg></div>
+          <div class="txt">社保卡 · 电子社保卡<small>全国人社政务服务平台 · www.12333.gov.cn</small></div>
+          <span class="chev">↗</span>
+        </a>
+        <a class="entry-row tap" href="https://www.mohrss.gov.cn/" target="_blank" rel="noopener noreferrer">
+          <div class="ico"><svg><use href="/icons.svg#ic-hall"></use></svg></div>
+          <div class="txt">政策法规 · 最新通知<small>人力资源和社会保障部 · mohrss.gov.cn</small></div>
+          <span class="chev">↗</span>
+        </a>
       </div>
+      <p class="ext-note">以上入口跳转至国家官方平台，演示站不代办任何业务。</p>
     </main>
 
     <main class="screen-body hidden" id="view-me">
@@ -110,11 +117,11 @@
       </section>
       <div class="section-title">设置</div>
       <div class="entry-card">
-        <div class="entry-row">
+        <a class="entry-row tap big" href="/admin">
           <div class="ico"><svg><use href="/icons.svg#ic-person"></use></svg></div>
           <div class="txt">展示内容配置<small>登录后可修改姓名、身份证号、头像、参保年限</small></div>
-          <a class="chev" href="/admin">›</a>
-        </div>
+          <span class="chev">›</span>
+        </a>
       </div>
     </main>
   </div>
@@ -122,7 +129,6 @@
   <nav class="tabbar" id="tabbar">
     <button data-view="home" class="active"><svg><use href="/icons.svg#ic-home"></use></svg>首页</button>
     <button data-view="service"><svg><use href="/icons.svg#ic-card"></use></svg>社保服务</button>
-    <button data-view="guide"><svg><use href="/icons.svg#ic-guide"></use></svg>办事指南</button>
     <button data-view="me"><svg><use href="/icons.svg#ic-me"></use></svg>我的</button>
   </nav>
 </div>
