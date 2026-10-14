@@ -1,0 +1,14 @@
+{
+  "name": "shebao-code",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "社保码演示站 — 全量运行在 Cloudflare Workers，配置数据存 KV",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.151.0"
+  }
+}

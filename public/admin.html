@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>社保码 · 展示内容配置</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='6' fill='%231b6fe0'/><path fill='white' d='M12 4 6 6.4v4.1c0 3.8 2.6 7.4 6 8.5 3.4-1.1 6-4.7 6-8.5V6.4L12 4z'/></svg>">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body class="admin-body">
+
+<!-- 登录 -->
+<div class="admin-wrap login-wrap hidden" id="login-panel">
+  <div class="login-hd">
+    <div class="mark"><svg><use href="/icons.svg#ic-shield"></use></svg></div>
+    <h1>社保码 · 管理后台</h1>
+    <p>单用户登录，登录后可配置前台展示内容</p>
+  </div>
+  <div class="admin-card">
+    <div class="field">
+      <label>管理员口令</label>
+      <input type="password" id="password" placeholder="请输入口令" autocomplete="current-password">
+    </div>
+    <div class="btn-row">
+      <button class="btn" id="login-btn">登录</button>
+      <a class="btn ghost" href="/">返回前台</a>
+    </div>
+  </div>
+</div>
+
+<!-- 配置 -->
+<div class="admin-wrap hidden" id="panel">
+
+  <div class="admin-card" style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+    <div>
+      <h2 style="margin:0">展示内容配置</h2>
+      <p class="hintline" style="margin:4px 0 0">保存后立即生效，前台刷新即可看到</p>
+    </div>
+    <div class="btn-row">
+      <a class="btn ghost sm" href="/" target="_blank">查看前台</a>
+      <button class="btn ghost sm" id="logout-btn">退出登录</button>
+    </div>
+  </div>
+
+  <!-- 码色 -->
+  <div class="admin-card">
+    <h2>通行码颜色</h2>
+    <p class="hintline">切换颜色会套用对应的状态文案与原因，可再手动修改</p>
+    <div class="swatches" id="swatches">
+      <div class="swatch" data-c="green">绿色码 · 通行</div>
+      <div class="swatch" data-c="yellow">黄色码 · 限行</div>
+      <div class="swatch" data-c="red">红色码 · 禁止通行</div>
+    </div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="field">
+        <label>状态词（大号字）</label>
+        <input type="text" id="statusTitle" placeholder="正常">
+      </div>
+      <div class="field">
+        <label>状态描述</label>
+        <input type="text" id="statusDesc" placeholder="您的社保状态正常，可通行">
+      </div>
+    </div>
+    <div class="field">
+      <label>要点列表（每行一条，可留空）</label>
+      <textarea id="reasons" placeholder="按时缴纳社保&#10;账户状态正常"></textarea>
+    </div>
+    <div class="grid2">
+      <div class="field">
+        <label>列表标题（绿码留空）</label>
+        <input type="text" id="reasonsLabel" placeholder="可能原因">
+      </div>
+      <div class="field">
+        <label>底部提示条（可留空）</label>
+        <input type="text" id="footerNote" placeholder="部分场所限行">
+      </div>
+    </div>
+  </div>
+
+  <!-- 个人信息 -->
+  <div class="admin-card">
+    <h2>个人信息</h2>
+    <p class="hintline">前台展示的姓名、身份证号与头像</p>
+    <div class="avatar-row field">
+      <div class="preview" id="avatar-preview"></div>
+      <div class="btn-row">
+        <label class="btn ghost sm" style="display:inline-block">上传头像
+          <input type="file" id="avatar-file" accept="image/*" style="display:none">
+        </label>
+        <button class="btn ghost sm" id="avatar-clear">移除头像</button>
+        <span style="font-size:12px;color:#93a1b3">PNG/JPG，小于 512KB</span>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="field">
+        <label>姓名</label>
+        <input type="text" id="name" placeholder="张三">
+      </div>
+      <div class="field">
+        <label>身份证号</label>
+        <input type="text" id="idNumber" placeholder="430101199001011234">
+      </div>
+    </div>
+    <div class="field row-inline">
+      <input type="checkbox" id="maskId" checked>
+      <label for="maskId" style="margin:0">前台对身份证号做脱敏展示（推荐）</label>
+    </div>
+    <div class="field">
+      <label>二维码内容（留空则使用身份证号）</label>
+      <input type="text" id="qrText" placeholder="留空 = 身份证号">
+    </div>
+  </div>
+
+  <!-- 参保信息 -->
+  <div class="admin-card">
+    <h2>参保信息</h2>
+    <p class="hintline">卡片底部三项数据</p>
+    <div class="grid3">
+      <div class="field">
+        <label>社保参保状态</label>
+        <input type="text" id="insurerStatus" placeholder="正常">
+      </div>
+      <div class="field">
+        <label>参保类型</label>
+        <input type="text" id="insuranceType" placeholder="职工基本养老保险">
+      </div>
+      <div class="field">
+        <label>累计缴费年限</label>
+        <input type="text" id="paidYears" placeholder="12年3个月">
+      </div>
+    </div>
+    <div class="field">
+      <label>更新时间（留空则保存时自动生成）</label>
+      <input type="text" id="updatedAt" placeholder="2026-10-10 11:23">
+    </div>
+    <div class="field">
+      <label>缴费记录（每行：日期 | 内容 | 金额）</label>
+      <textarea id="serviceRecord" style="min-height:110px" placeholder="2026-10 | 养老保险 · 个人缴费 已到账 | ¥ 1,028.40"></textarea>
+    </div>
+  </div>
+
+  <div class="admin-card">
+    <div class="btn-row">
+      <button class="btn" id="save-btn">保存并生效</button>
+      <button class="btn ghost" id="reload-btn">放弃修改</button>
+      <button class="btn danger" id="reset-btn">恢复默认</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="/presets.js"></script>
+<script src="/admin.js"></script>
+</body>
+</html>
