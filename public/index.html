@@ -3,214 +3,128 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>社保码 · 让社保更便捷</title>
-<meta name="description" content="社保码演示站：一人一码，缴费有记录，状态随时查，通行更安心。">
+<title>社保码</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='6' fill='%231b6fe0'/><path fill='white' d='M12 4 6 6.4v4.1c0 3.8 2.6 7.4 6 8.5 3.4-1.1 6-4.7 6-8.5V6.4L12 4z'/></svg>">
 <link rel="stylesheet" href="/style.css">
 </head>
 <body data-code="green">
 
-<div class="layout">
-  <div class="phone-col">
-    <div class="phone">
-      <div class="phone-screen">
+<div class="app">
+  <div class="phone-screen">
 
-        <header class="hero">
-          <div class="hero-brand">
-            <div class="mark"><svg><use href="/icons.svg#ic-shield"></use></svg></div>
-            <div>
-              <h1>社保码</h1>
-              <p>一人一码　享受社保　便捷生活</p>
-            </div>
-          </div>
-        </header>
-
-        <!-- 首页 -->
-        <main class="screen-body" id="view-home">
-          <section class="code-card">
-            <div class="person">
-              <div class="avatar" id="avatar"></div>
-              <div>
-                <div class="name" id="p-name">张三</div>
-                <div class="idno" id="p-id">身份证号 430********1234</div>
-              </div>
-            </div>
-
-            <div class="qr-wrap">
-              <div class="qr" id="qr"></div>
-            </div>
-
-            <div class="status-block">
-              <div class="status-line">
-                <span class="tick" id="tick">✓</span>
-                <span class="word" id="status-word">正常</span>
-              </div>
-              <p class="status-desc" id="status-desc">您的社保状态正常，可通行</p>
-            </div>
-
-            <ul class="meta">
-              <li><span>社保参保状态</span><b id="m-status">正常</b></li>
-              <li><span>参保类型</span><b id="m-type">职工基本养老保险</b></li>
-              <li><span>累计缴费年限</span><b id="m-years">12年3个月</b></li>
-            </ul>
-
-            <div class="reasons hidden" id="reasons">
-              <div class="label" id="reasons-label">可能原因</div>
-              <ul id="reasons-list"></ul>
-            </div>
-
-            <div class="footer-note hidden" id="footer-note"></div>
-
-            <div class="updated" id="updated">更新时间 2026-10-10 11:23</div>
-          </section>
-
-          <div class="section-title">社保码 · 主要功能</div>
-          <div class="entry-card">
-            <div class="entry-row">
-              <div class="ico"><svg><use href="/icons.svg#ic-scan"></use></svg></div>
-              <div class="txt">扫码通行<small>公共场所、政务大厅、社区扫码验证</small></div>
-              <span class="chev">›</span>
-            </div>
-            <div class="entry-row">
-              <div class="ico"><svg><use href="/icons.svg#ic-search"></use></svg></div>
-              <div class="txt">参保信息查询<small>查看参保状态、缴费记录、个人账户</small></div>
-              <span class="chev">›</span>
-            </div>
-            <div class="entry-row">
-              <div class="ico"><svg><use href="/icons.svg#ic-bell"></use></svg></div>
-              <div class="txt">实时提醒<small>缴费提醒、政策通知</small></div>
-              <span class="chev">›</span>
-            </div>
-          </div>
-        </main>
-
-        <!-- 社保服务 -->
-        <main class="screen-body hidden" id="view-service">
-          <div class="section-title">本年缴费记录</div>
-          <div class="entry-card" id="records"></div>
-          <div class="section-title">待遇与服务</div>
-          <div class="entry-card">
-            <div class="entry-row">
-              <div class="ico"><svg><use href="/icons.svg#ic-card"></use></svg></div>
-              <div class="txt">养老金测算<small>按当前缴费年限试算</small></div>
-              <span class="chev">›</span>
-            </div>
-            <div class="entry-row">
-              <div class="ico"><svg><use href="/icons.svg#ic-shield"></use></svg></div>
-              <div class="txt">医保个人账户<small>余额与消费明细</small></div>
-              <span class="chev">›</span>
-            </div>
-            <div class="entry-row">
-              <div class="ico"><svg><use href="/icons.svg#ic-guide"></use></svg></div>
-              <div class="txt">参保证明打印<small>在线开具、二维码验真</small></div>
-              <span class="chev">›</span>
-            </div>
-          </div>
-        </main>
-
-        <!-- 办事指南 -->
-        <main class="screen-body hidden" id="view-guide">
-          <div class="section-title">常见问题</div>
-          <div class="entry-card">
-            <div class="faq"><b>社保码怎么使用？</b><p>在政务大厅、公共交通、医院等场所出示二维码，由工作人员扫码核验通行状态。</p></div>
-            <div class="faq"><b>为什么我的码变黄/变红？</b><p>缴费逾期、信息不一致、参保状态异常等都可能触发。按提示到经办机构或线上处理，处理完成后状态会自动更新。</p></div>
-            <div class="faq"><b>身份证号被遮挡了怎么办？</b><p>默认对身份证号做脱敏展示，可在「我的 → 隐私设置」中按需调整。</p></div>
-            <div class="faq"><b>二维码可以截图给别人吗？</b><p>社保码一人一码，仅限本人使用。截图会导致双方都无法正常核验。</p></div>
-          </div>
-          <div class="section-title">线下网点</div>
-          <div class="entry-card">
-            <div class="entry-row">
-              <div class="ico"><svg><use href="/icons.svg#ic-hall"></use></svg></div>
-              <div class="txt">市政务服务中心<small>工作日 9:00-17:00 · 3.2km</small></div>
-              <span class="chev">›</span>
-            </div>
-            <div class="entry-row">
-              <div class="ico"><svg><use href="/icons.svg#ic-hall"></use></svg></div>
-              <div class="txt">社保经办服务大厅<small>工作日 8:30-17:30 · 5.6km</small></div>
-              <span class="chev">›</span>
-            </div>
-          </div>
-        </main>
-
-        <!-- 我的 -->
-        <main class="screen-body hidden" id="view-me">
-          <section class="code-card">
-            <div class="person">
-              <div class="avatar" id="avatar-2"></div>
-              <div>
-                <div class="name" id="p-name-2">张三</div>
-                <div class="idno" id="p-id-2">430********1234</div>
-              </div>
-            </div>
-            <ul class="meta" style="border-top:0">
-              <li><span>参保类型</span><b id="m-type-2">职工基本养老保险</b></li>
-              <li><span>累计缴费年限</span><b id="m-years-2">12年3个月</b></li>
-              <li><span>参保险种</span><b>养老 · 医疗 · 失业</b></li>
-            </ul>
-          </section>
-          <div class="section-title">设置</div>
-          <div class="entry-card">
-            <div class="entry-row">
-              <div class="ico"><svg><use href="/icons.svg#ic-person"></use></svg></div>
-              <div class="txt">展示内容配置<small>登录后可修改姓名、身份证号、头像、参保年限</small></div>
-              <a class="chev" href="/admin">›</a>
-            </div>
-          </div>
-        </main>
-
+    <header class="hero">
+      <div class="hero-brand">
+        <div class="mark"><svg><use href="/icons.svg#ic-shield"></use></svg></div>
+        <div>
+          <h1>社保码</h1>
+          <p>一人一码　享受社保　便捷生活</p>
+        </div>
       </div>
+    </header>
 
-      <nav class="tabbar" id="tabbar">
-        <button data-view="home" class="active"><svg><use href="/icons.svg#ic-home"></use></svg>首页</button>
-        <button data-view="service"><svg><use href="/icons.svg#ic-card"></use></svg>社保服务</button>
-        <button data-view="guide"><svg><use href="/icons.svg#ic-guide"></use></svg>办事指南</button>
-        <button data-view="me"><svg><use href="/icons.svg#ic-me"></use></svg>我的</button>
-      </nav>
-    </div>
-    <p class="sidebar-hint">演示站点 · 全部运行在 Cloudflare Workers，数据存 KV</p>
+    <main class="screen-body" id="view-home">
+      <section class="code-card">
+        <div class="person">
+          <div class="avatar" id="avatar"></div>
+          <div>
+            <div class="name" id="p-name">张三</div>
+            <div class="idno" id="p-id">身份证号 430********1234</div>
+          </div>
+        </div>
+
+        <div class="qr-wrap">
+          <div class="qr" id="qr"></div>
+        </div>
+
+        <div class="status-block">
+          <div class="status-line">
+            <span class="tick" id="tick">✓</span>
+            <span class="word" id="status-word">正常</span>
+          </div>
+          <p class="status-desc" id="status-desc">您的社保状态正常，可通行</p>
+        </div>
+
+        <ul class="meta">
+          <li><span>社保参保状态</span><b id="m-status">正常</b></li>
+          <li><span>参保类型</span><b id="m-type">职工基本养老保险</b></li>
+          <li><span>累计缴费年限</span><b id="m-years">12年3个月</b></li>
+        </ul>
+
+        <div class="reasons hidden" id="reasons">
+          <div class="label" id="reasons-label">可能原因</div>
+          <ul id="reasons-list"></ul>
+        </div>
+
+        <div class="footer-note hidden" id="footer-note"></div>
+        <div class="updated" id="updated">更新时间 2026-10-10 11:23</div>
+      </section>
+    </main>
+
+    <main class="screen-body hidden" id="view-service">
+      <div class="section-title">本年缴费记录</div>
+      <div class="entry-card" id="records"></div>
+      <div class="section-title">待遇与服务</div>
+      <div class="entry-card">
+        <div class="entry-row">
+          <div class="ico"><svg><use href="/icons.svg#ic-card"></use></svg></div>
+          <div class="txt">养老金测算<small>按当前缴费年限试算</small></div>
+          <span class="chev">›</span>
+        </div>
+        <div class="entry-row">
+          <div class="ico"><svg><use href="/icons.svg#ic-shield"></use></svg></div>
+          <div class="txt">医保个人账户<small>余额与消费明细</small></div>
+          <span class="chev">›</span>
+        </div>
+        <div class="entry-row">
+          <div class="ico"><svg><use href="/icons.svg#ic-guide"></use></svg></div>
+          <div class="txt">参保证明打印<small>在线开具、二维码验真</small></div>
+          <span class="chev">›</span>
+        </div>
+      </div>
+    </main>
+
+    <main class="screen-body hidden" id="view-guide">
+      <div class="section-title">常见问题</div>
+      <div class="entry-card">
+        <div class="faq"><b>社保码怎么使用？</b><p>在政务大厅、公共交通、医院等场所出示二维码，由工作人员扫码核验通行状态。</p></div>
+        <div class="faq"><b>为什么我的码变黄/变红？</b><p>缴费逾期、信息不一致、参保状态异常等都可能触发。按提示到经办机构或线上处理，处理完成后状态会自动更新。</p></div>
+        <div class="faq"><b>身份证号被遮挡了怎么办？</b><p>默认对身份证号做脱敏展示，可在「我的」中按需调整。</p></div>
+        <div class="faq"><b>二维码可以截图给别人吗？</b><p>社保码一人一码，仅限本人使用。截图会导致双方都无法正常核验。</p></div>
+      </div>
+    </main>
+
+    <main class="screen-body hidden" id="view-me">
+      <section class="code-card">
+        <div class="person">
+          <div class="avatar" id="avatar-2"></div>
+          <div>
+            <div class="name" id="p-name-2">张三</div>
+            <div class="idno" id="p-id-2">430********1234</div>
+          </div>
+        </div>
+        <ul class="meta" style="border-top:0">
+          <li><span>参保类型</span><b id="m-type-2">职工基本养老保险</b></li>
+          <li><span>累计缴费年限</span><b id="m-years-2">12年3个月</b></li>
+          <li><span>参保险种</span><b>养老 · 医疗 · 失业</b></li>
+        </ul>
+      </section>
+      <div class="section-title">设置</div>
+      <div class="entry-card">
+        <div class="entry-row">
+          <div class="ico"><svg><use href="/icons.svg#ic-person"></use></svg></div>
+          <div class="txt">展示内容配置<small>登录后可修改姓名、身份证号、头像、参保年限</small></div>
+          <a class="chev" href="/admin">›</a>
+        </div>
+      </div>
+    </main>
   </div>
 
-  <section class="side">
-    <h1>社保码 · 让社保更便捷</h1>
-    <p class="sub">缴费有记录　状态随时查　通行更安心</p>
-
-    <div class="color-cards" id="color-cards"></div>
-
-    <h2>社保码 · 主要功能</h2>
-    <div class="feature-grid">
-      <div class="feature">
-        <div class="ico"><svg><use href="/icons.svg#ic-scan"></use></svg></div>
-        <b>扫码通行</b>
-        <p>在公共场所、政务大厅、社区等扫码验证</p>
-      </div>
-      <div class="feature">
-        <div class="ico"><svg><use href="/icons.svg#ic-search"></use></svg></div>
-        <b>参保信息查询</b>
-        <p>查看参保状态、缴费记录、个人账户信息</p>
-      </div>
-      <div class="feature">
-        <div class="ico"><svg><use href="/icons.svg#ic-shield"></use></svg></div>
-        <b>社保待遇办理</b>
-        <p>养老金、医保，一站式服务</p>
-      </div>
-      <div class="feature">
-        <div class="ico"><svg><use href="/icons.svg#ic-bell"></use></svg></div>
-        <b>实时提醒</b>
-        <p>缴费提醒、政策通知</p>
-      </div>
-    </div>
-
-    <h2>适用场景</h2>
-    <div class="scene-grid">
-      <div class="scene"><svg><use href="/icons.svg#ic-hall"></use></svg><b>政务大厅</b><small>办事、窗口服务</small></div>
-      <div class="scene"><svg><use href="/icons.svg#ic-bus"></use></svg><b>公共交通</b><small>地铁、公交</small></div>
-      <div class="scene"><svg><use href="/icons.svg#ic-place"></use></svg><b>公共场所</b><small>商场、景区、体育馆</small></div>
-      <div class="scene"><svg><use href="/icons.svg#ic-flight"></use></svg><b>出行管理</b><small>机场、火车站</small></div>
-      <div class="scene"><svg><use href="/icons.svg#ic-more"></use></svg><b>更多场景</b><small>逐步推广</small></div>
-    </div>
-
-    <p class="foot-note">演示用途，与任何真实社保系统无关。配置入口：<a href="/admin">/admin</a></p>
-  </section>
+  <nav class="tabbar" id="tabbar">
+    <button data-view="home" class="active"><svg><use href="/icons.svg#ic-home"></use></svg>首页</button>
+    <button data-view="service"><svg><use href="/icons.svg#ic-card"></use></svg>社保服务</button>
+    <button data-view="guide"><svg><use href="/icons.svg#ic-guide"></use></svg>办事指南</button>
+    <button data-view="me"><svg><use href="/icons.svg#ic-me"></use></svg>我的</button>
+  </nav>
 </div>
 
 <script src="/vendor/qrcode.js"></script>

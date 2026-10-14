@@ -22,56 +22,43 @@ body[data-code="red"] { --code: #e2494b; --code-soft: #fdeceb; }
 
 html, body { margin: 0; padding: 0; }
 
+html, body { height: 100%; }
+
 body {
-  background: var(--bg);
+  background: #f2f6fc;
   color: var(--ink);
   font: 15px/1.55 -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
     "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
-  display: flex;
-  justify-content: center;
-  padding: 28px 18px 48px;
 }
 
 a { color: var(--blue); text-decoration: none; }
 .hidden { display: none !important; }
 
-.layout {
-  width: 100%;
-  max-width: 1140px;
-  display: grid;
-  grid-template-columns: 372px minmax(0, 1fr);
-  gap: 40px;
-  align-items: start;
-}
-
-/* ---------- 手机 ---------- */
-
-.phone-col { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-
-.phone {
-  width: 372px;
-  height: min(780px, 84vh);
-  background: #fff;
-  border-radius: 34px;
-  box-shadow: 0 24px 60px rgba(20, 45, 90, .18), 0 0 0 10px #1b2430, 0 0 0 12px #2c3949;
-  overflow: hidden;
+.app {
+  min-height: 100%;
+  min-height: 100dvh;
+  max-width: 430px;
+  margin: 0 auto;
+  background: #f2f6fc;
   display: flex;
   flex-direction: column;
-  position: sticky;
-  top: 28px;
 }
 
-.phone-screen { flex: 1; overflow-y: auto; overscroll-behavior: contain; background: #f2f6fc; }
+.phone-screen {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: #f2f6fc;
+  -webkit-overflow-scrolling: touch;
+}
 .phone-screen::-webkit-scrollbar { width: 0; }
-
-.sidebar-hint { font-size: 12.5px; color: var(--ink-3); text-align: center; }
 
 /* ---------- 顶部 ---------- */
 
 .hero {
   background: linear-gradient(150deg, #2b7df0 0%, var(--blue) 45%, var(--blue-deep) 100%);
   color: #fff;
-  padding: 22px 20px 56px;
+  padding: calc(14px + env(safe-area-inset-top)) 20px 56px;
   position: relative;
 }
 
@@ -191,6 +178,7 @@ a { color: var(--blue); text-decoration: none; }
   display: grid; grid-template-columns: repeat(4, 1fr);
   border-top: 1px solid var(--line); background: #fff;
   padding: 8px 0 max(8px, env(safe-area-inset-bottom));
+  flex: none;
 }
 .tabbar button {
   border: 0; background: none; cursor: pointer;
@@ -199,58 +187,6 @@ a { color: var(--blue); text-decoration: none; }
 }
 .tabbar button svg { width: 21px; height: 21px; fill: currentColor; }
 .tabbar button.active { color: var(--blue); font-weight: 600; }
-
-/* ---------- 右侧说明 ---------- */
-
-.side { padding-top: 8px; }
-.side > h1 { font-size: 30px; margin: 0 0 6px; letter-spacing: -.5px; }
-.side > .sub { margin: 0 0 26px; color: var(--ink-2); font-size: 14.5px; letter-spacing: .5px; }
-.side h2 { font-size: 17px; margin: 30px 0 14px; }
-
-.color-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-.color-card {
-  background: #fff; border-radius: 14px; overflow: hidden;
-  box-shadow: var(--shadow); display: flex; flex-direction: column;
-}
-.color-card.current { outline: 2px solid var(--c); outline-offset: -2px; }
-.color-card .cc-head {
-  padding: 10px 12px; color: #fff; font-weight: 650; font-size: 14px;
-  background: var(--c); display: flex; justify-content: space-between; align-items: center;
-}
-.color-card .cc-head em { font-style: normal; font-size: 11px; opacity: .85; font-weight: 400; }
-.color-card .cc-body { padding: 12px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
-.color-card .cc-qr { width: 76px; height: 76px; margin: 0 auto; }
-.color-card .cc-qr svg { width: 100%; height: 100%; }
-.color-card .cc-qr svg path { fill: var(--c) !important; }
-.color-card .cc-state { text-align: center; font-size: 13.5px; font-weight: 650; color: var(--c); }
-.color-card .cc-desc { text-align: center; font-size: 11.5px; color: var(--ink-2); margin: 0; }
-.color-card ul { margin: 4px 0 0; padding-left: 14px; font-size: 11.5px; color: var(--ink-2); }
-.color-card .cc-note {
-  margin-top: auto; padding: 7px; border-radius: 8px; text-align: center;
-  font-size: 11.5px; font-weight: 600; color: #fff; background: var(--c);
-}
-
-.feature-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-.feature {
-  background: #fff; border-radius: 14px; padding: 16px 12px; box-shadow: var(--shadow);
-  text-align: center;
-}
-.feature .ico { width: 40px; height: 40px; margin: 0 auto 9px; display: grid; place-items: center; }
-.feature .ico svg { width: 34px; height: 34px; fill: var(--blue); }
-.feature b { display: block; font-size: 13.5px; font-weight: 650; }
-.feature p { margin: 5px 0 0; font-size: 11.5px; color: var(--ink-2); line-height: 1.5; }
-
-.scene-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
-.scene {
-  background: #fff; border-radius: 14px; padding: 14px 8px; text-align: center;
-  box-shadow: var(--shadow);
-}
-.scene svg { width: 26px; height: 26px; fill: var(--blue); }
-.scene b { display: block; font-size: 12.5px; font-weight: 650; margin-top: 6px; }
-.scene small { font-size: 11px; color: var(--ink-3); }
-
-.foot-note { margin-top: 34px; font-size: 12.5px; color: var(--ink-3); }
-.foot-note a { font-weight: 600; }
 
 /* ---------- 管理页 ---------- */
 
@@ -328,18 +264,7 @@ a { color: var(--blue); text-decoration: none; }
 .login-hd h1 { margin: 0; font-size: 22px; }
 .login-hd p { margin: 6px 0 0; color: var(--ink-2); font-size: 13px; }
 
-/* ---------- 响应式 ---------- */
-
-@media (max-width: 1000px) {
-  body { padding: 0 0 40px; }
-  .layout { grid-template-columns: 1fr; gap: 26px; max-width: 620px; }
-  .phone { width: 100%; height: auto; position: static; border-radius: 0 0 26px 26px; box-shadow: 0 12px 30px rgba(20,45,90,.14); }
-  .phone-screen { overflow: visible; }
-  .side { padding: 0 18px; }
-  .side > h1 { font-size: 23px; }
-  .color-cards { grid-template-columns: 1fr; }
-  .color-card .cc-qr { width: 92px; height: 92px; }
-  .feature-grid { grid-template-columns: 1fr 1fr; }
-  .scene-grid { grid-template-columns: repeat(3, 1fr); }
-  .sidebar-hint { padding: 0 18px; }
+@media (min-width: 480px) {
+  body { background: #dce6f4; }
+  .app { min-height: 100dvh; box-shadow: 0 0 0 1px rgba(24,56,110,.06), 0 18px 50px rgba(24,56,110,.12); }
 }
